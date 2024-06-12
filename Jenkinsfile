@@ -53,6 +53,7 @@ pipeline {
         }
         stage('Pobranie Informacji o Wersji') {
             steps {
+                emailext body: 'A Test EMail', subject: 'Test', to: 'kapidospamu@gmail.com'
                 echo "Pobrana wersja: ${env.GIT_COMMIT}"
             }
         }
