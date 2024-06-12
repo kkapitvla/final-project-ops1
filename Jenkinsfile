@@ -18,9 +18,6 @@ pipeline {
         stage('Welcome') {
             steps {
                 echo "Hello $USERNAME, you are working on $BRANCH branch"
-                 emailext body: "Wystąpił błąd podczas wykonywania pipelinu",                
-                subject: "BŁĄD",                
-                to: "kapidospamu@gmail.com"
             }
         }
         stage('Checkout') {
@@ -59,5 +56,18 @@ pipeline {
                 echo "Pobrana wersja: ${env.GIT_COMMIT}"
             }
         }
+        stage('Sending') {
+            steps {
+                post {
+        always {
+            emailext (
+                to: 'my@my.dom', 
+                replyTo: 'my@my.dom', 
+                subject: '$DEFAULT_SUBJECT',
+                body: '$DEFAULT_CONTENT',
+                mimeType: 'text/html'
+            );
+        }
     }
-}
+    }
+}}}
