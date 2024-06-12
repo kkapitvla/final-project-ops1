@@ -60,7 +60,7 @@ pipeline {
         }
   post {
     always {
-       mail to: 'kapidospamu@gmail.com',
+       mail to: 'k.kapitula.063@studms.ug.edu.pl',
           subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
           body: "${env.BUILD_URL} has result ${currentBuild.result}"
     }
