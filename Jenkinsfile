@@ -54,14 +54,10 @@ pipeline {
         stage('Pobranie Informacji o Wersji') {
             steps {
                 echo "Pobrana wersja: ${env.GIT_COMMIT}"
-            }
-        }
-    }
-        post {     
-             {       
-            emailext body: "Wystąpił błąd podczas wykonywania pipelinu",                
+                emailext body: "Wystąpił błąd podczas wykonywania pipelinu",                
                 subject: "BŁĄD",                
                 to: "kapidospamu@gmail.com"
             }
         }
+    }
 }
