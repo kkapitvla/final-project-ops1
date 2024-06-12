@@ -56,9 +56,8 @@ pipeline {
                 echo "Pobrana wersja: ${env.GIT_COMMIT}"
             }
         }
-        stage('Sending') {
-            steps {
-                post {
+        }
+                    post {
         always {
             emailext (
                 to: 'my@my.dom', 
@@ -67,7 +66,5 @@ pipeline {
                 body: '$DEFAULT_CONTENT',
                 mimeType: 'text/html'
             );
-        }
     }
-    }
-}}}
+    
