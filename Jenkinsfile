@@ -67,4 +67,4 @@ pipeline {
                 mimeType: 'text/html'
             );
     }
-    
+                    }}
