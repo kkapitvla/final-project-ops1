@@ -58,11 +58,12 @@ pipeline {
             }
         }
         }
-    post {
-        always {
-        emailext body: 'A Test EMail', subject: 'Test', to: 'kapidospamu@gmail.com'
-
-        }
+  post {
+    always {
+       mail to: 'kapidospamu@gmail.com',
+          subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+          body: "${env.BUILD_URL} has result ${currentBuild.result}"
+    }
     }
     }
                     
