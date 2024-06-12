@@ -58,7 +58,7 @@ pipeline {
         }
     }
         post {     
-            failure {       
+             {       
             emailext body: "Wystąpił błąd podczas wykonywania pipelinu",                
                 subject: "BŁĄD",                
                 to: "kapidospamu@gmail.com"
