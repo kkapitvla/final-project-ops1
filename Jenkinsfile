@@ -57,14 +57,10 @@ pipeline {
             }
         }
         }
-                    post {
+    post {
         always {
-            emailext (
-                to: 'kapidospamu@gmail.com', 
-                replyTo: 'kapidospamu@gmail.com', 
-                subject: '$DEFAULT_SUBJECT',
-                body: '$DEFAULT_CONTENT',
-                mimeType: 'text/html'
-            );
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        }
     }
-                    }}
+    }
+                    
